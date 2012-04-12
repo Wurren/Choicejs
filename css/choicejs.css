@@ -1,0 +1,53 @@
+  body {
+    font-family:arial, helvetica, sans-serif;
+    font-size:12px;
+    line-height:18px;
+  }
+
+  .Choice {
+    width:300px;
+    border:solid 1px #ddd;
+    margin:20px;
+    position:relative;
+  }
+
+  .ListChoice {
+  	margin:0;
+  	padding:0;
+  	list-style:none;
+      display:block;
+      position:absolute;
+      top:39px;
+      left:-1px;
+      width:300px;
+      background-color:#fff;
+      z-index:888;
+      border-left:solid 1px #ddd;
+      border-right :solid 1px #ddd;;
+  }
+
+  .ListChoice li {
+    display:block;
+    padding:10px;
+    border-bottom:solid 1px #ddd;
+    cursor:pointer;
+  }
+
+.ListChoice li:hover {
+  background-color:#f9f9f9;
+}
+
+  .ChoiceCurrent {
+    font-weight:bold;
+    display:block;
+    padding:10px;
+    cursor:pointer;
+    box-shadow:inset 0px 3px 3px #f9f9f9;
+    background-image:url('choicebg.jpg');
+    background-repeat:no-repeat;
+    background-position: top right;
+  }
+
+.ChoiceCurrent:hover {
+  background-image:url('choicebgHover.jpg');
+}
