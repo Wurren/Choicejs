@@ -4,6 +4,11 @@
     line-height:18px;
   }
 
+  
+
+/* == CHOICEJS - Feel free to customize the selectbox however. Heres a quick and simple theme == */
+
+
   .Choice {
     width:300px;
     border:solid 1px #ddd;
@@ -12,9 +17,9 @@
   }
 
   .ListChoice {
-  	margin:0;
-  	padding:0;
-  	list-style:none;
+    margin:0;
+    padding:0;
+    list-style:none;
       display:block;
       position:absolute;
       top:39px;
@@ -43,11 +48,16 @@
     padding:10px;
     cursor:pointer;
     box-shadow:inset 0px 3px 3px #f9f9f9;
-    background-image:url('choicebg.jpg');
+    background-image:url('../img/choicebg.jpg');
     background-repeat:no-repeat;
     background-position: top right;
   }
 
 .ChoiceCurrent:hover {
-  background-image:url('choicebgHover.jpg');
+  background-image:url('../img/choicebgHover.jpg');
+}
+
+a {
+  color:#09c;
+  text-decoration:none;
 }
