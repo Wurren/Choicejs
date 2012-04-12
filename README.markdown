@@ -4,4 +4,4 @@
 
 
 
-[view demo here](http://goo.gl/ztbjb "Choicejs")
+[view demo here](http://ilovevillainy.com/choicejs/ "Choicejs")
