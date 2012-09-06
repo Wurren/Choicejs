@@ -44,7 +44,7 @@
 		});
 
 		current.click(function(){
-			list.slideToggle("fast");
+			list.toggle();
 		});
 
 		list.find('li').click(function(){
@@ -53,7 +53,11 @@
 				text = selection.eq(id).text();
 			$(input).val(value);
 			current.text(text);
-			list.slideUp("fast");
+			list.hide();
+		});
+
+		$(document).mouseup(function (e){
+		    if (cont.has(e.target).length === 0) cont.find(list).hide();
 		});
 
 	};
@@ -64,4 +68,4 @@
 		});
 	};
 
-}(jQuery, window));
+}(jQuery, window, document));
