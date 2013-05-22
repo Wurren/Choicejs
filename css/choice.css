@@ -1,0 +1,52 @@
+body {
+	font-family:arial, helvetica, sans-serif;
+	font-size:12px;
+	line-height:18px;
+}
+
+
+
+/* == CHOICEJS - Feel free to customize the selectbox however. Heres a quick and simple theme == */
+
+
+.ChoiceJS {
+	width:300px;
+	border:solid 1px #ddd;
+	margin:20px;
+	position:relative;
+}
+
+.ChoiceList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 100%;
+	left: -1px;
+	background-color: #fff;
+	z-index: 9999;
+	border:solid 1px #ddd;
+	border-top: 0;
+	overflow: auto;
+}
+
+.ChoiceCurrent, .ChoiceList li {
+	display: block;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.ChoiceList li {
+	border-top: solid 1px #ddd;
+}
+
+.ChoiceList li:hover {
+	background-color: #eee;
+}
+
+.ChoiceCurrent {
+	font-weight: bold;
+}
+
+
+

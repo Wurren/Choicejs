@@ -61,25 +61,65 @@
 		// });
 
 		init : function() {
-				this.el.hide();
-				this.children = this.el.children(),
-				this.container = this.el.wrap('<div class="ChoiceJS" />').parent(),
-				this.hiddenInput = $('<input />').prop({ 'name' : this.el.prop('name'), 'type' : 'hidden' }).appendTo(this.container),
-				this.list = $('<ul class="ChoiceList" />').appendTo(this.container),
-				this.current = $('<div />').prop('class', 'ChoiceCurrent').prependTo(this.container);
+			this.el.hide();
+			this.children = this.el.children(),
+			this.container = this.el.wrap('<div class="ChoiceJS" />').parent(),
+			this.hiddenInput = $('<input />').prop({ 'name' : this.el.prop('name'), 'type' : 'hidden' }).appendTo(this.container),
+			this.list = $('<ul class="ChoiceList" />').appendTo(this.container).hide(),
+			this.current = $('<div />').prop('class', 'ChoiceCurrent').prependTo(this.container);
 
-				this.children.each($.proxy(this.item, this));
+			this.children.each($.proxy(this.item, this));
+
+			var that = this;
+
+			this.list.width(this.container.width());
+
+			$(document).on('mouseup', function (e){
+				if (that.container.has(e.target).length === 0) that.list.hide();
+			});
+
+			this.current.on('click',function(){
+				that.list.toggle();
+				var i = that.list.children();
+				var h = $(i[0]).innerHeight() * 3;
+				console.log(h);
+				that.list.height(h);
+			});
+
+			// list.find('li').click(function(){
+			// 	var 	id = $(this).data("item"),
+			// 		value = selection.eq(id).val() || selection.eq(id).text(),
+			// 		text = selection.eq(id).text();
+			// 	$(input).val(value);
+			// 	current.text(text);
+			// 	list.hide();
+			// });
+
+			this.list.on('click', 'li', $.proxy(this.change, this));
+
 		},
 
 		item : function(index, val) {
-			var item = $('<li />').text(val.value);
-			if($(val).prop('selected')) this.set(val);
-			item.prop('data-index', index).appendTo(this.list);
+			var item = $('<li />').text(val.innerText);
+			if($(val).prop('selected')) this.selected(val);
+			var data = {
+				'index' : index,
+				'value' : val.value || val.innerText,
+				'text'  : val.innerText
+			}
+			item.data('ChoiceJS', data).appendTo(this.list);
 		},
 
-		set : function(val) {
-			this.current.text(val.value);
+		selected : function(val) {
+			this.current.text(val.innerText);
 			this.hiddenInput.val( val.value || val.innerText )
+		},
+
+		change : function(val) {
+			var val = $(val.target).data('ChoiceJS');
+			this.current.text(val.text);
+			this.hiddenInput.val(val.value);
+			this.list.toggle();
 		}
 
 	};
