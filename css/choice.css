@@ -26,7 +26,6 @@ body {
 	background-color: #fff;
 	z-index: 9999;
 	border:solid 1px #ddd;
-	border-top: 0;
 	overflow: auto;
 }
 
@@ -38,6 +37,10 @@ body {
 
 .ChoiceList li {
 	border-top: solid 1px #ddd;
+}
+
+.ChoiceList li:first-child {
+	border-top: 0;
 }
 
 .ChoiceList li:hover {
